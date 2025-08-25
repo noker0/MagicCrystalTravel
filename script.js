@@ -20,22 +20,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Header background change on scroll
-   
-
     // Hero navigation circles functionality
     const navCircles = document.querySelectorAll('.nav-circle');
     let currentSlide = 0;
+    
+    // ОБНОВЛЕННЫЙ МАССИВ СЛАЙДОВ С НАСТОЯЩИМИ ИЗОБРАЖЕНИЯМИ
     const slides = [
         {
             title: 'Quyoshli Misr',
             subtitle: 'Sharm al-Sheyx',
-            background: 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900"><rect fill="%23D4A574" width="1400" height="900"/><polygon fill="%23C19660" points="0,500 350,300 700,450 1050,200 1400,350 1400,900 0,900"/><circle fill="%23E6D7C3" cx="300" cy="200" r="80" opacity="0.7"/></svg>\')'
+            image: 'images/egypt-sharm.jpg', // Ваше изображение Египта
+            alt: 'Красивый пейзаж Шарм-эль-Шейха'
         },
         {
             title: 'Buyuk Turkiya',
             subtitle: 'Istanbul',
-            background: 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900"><rect fill="%23E74C3C" width="1400" height="900"/><polygon fill="%23C0392B" points="0,400 400,250 800,400 1200,200 1400,300 1400,900 0,900"/><circle fill="%23F1C40F" cx="600" cy="180" r="60"/></svg>\')'
+            image: 'images/turkey-istanbul.jpg', // Ваше изображение Турции
+            alt: 'Красивый пейзаж Стамбула'
         }
     ];
 
@@ -52,12 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const heroTitle = document.querySelector('.hero-title');
         const heroLocation = document.querySelector('.hero-location');
         
-        hero.style.background = slides[currentSlide].background;
+        // Обновляем фоновое изображение
+        hero.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${slides[currentSlide].image}')`;
         hero.style.backgroundSize = 'cover';
         hero.style.backgroundPosition = 'center';
+        hero.style.backgroundRepeat = 'no-repeat';
         
+        // Обновляем текст
         heroTitle.textContent = slides[currentSlide].title;
         heroLocation.textContent = slides[currentSlide].subtitle;
+        
+        // Добавляем плавный переход
+        hero.style.transition = 'background-image 0.5s ease-in-out';
     }
 
     function updateNavCircles() {
@@ -65,6 +72,21 @@ document.addEventListener('DOMContentLoaded', function() {
             circle.classList.toggle('active', index === currentSlide);
         });
     }
+
+    // Предзагрузка изображений для плавной смены
+    function preloadImages() {
+        slides.forEach(slide => {
+            const img = new Image();
+            img.src = slide.image;
+        });
+    }
+
+    // Запускаем предзагрузку
+    preloadImages();
+
+    // Инициализируем первый слайд
+    updateHeroSlide();
+    updateNavCircles();
 
     // Auto-slide functionality
     setInterval(() => {
@@ -144,33 +166,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Contact form submission
     const contactForm = document.querySelector('.contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = this.querySelector('input[type="text"]').value;
-        const phone = this.querySelector('input[type="tel"]').value;
-        
-        if (name && phone) {
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            submitBtn.textContent = 'YUBORILMOQDA...';
-            submitBtn.disabled = true;
+            const name = this.querySelector('input[type="text"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
             
-            setTimeout(() => {
-                submitBtn.textContent = 'YUBORILDI ✓';
-                submitBtn.style.background = '#27ae60';
+            if (name && phone) {
+                // Simulate form submission
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'YUBORILMOQDA...';
+                submitBtn.disabled = true;
                 
                 setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '#f39c12';
-                    submitBtn.disabled = false;
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        }
-    });
+                    submitBtn.textContent = 'YUBORILDI ✓';
+                    submitBtn.style.background = '#27ae60';
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = '#f39c12';
+                        submitBtn.disabled = false;
+                        this.reset();
+                    }, 2000);
+                }, 1500);
+            }
+        });
+    }
 
     // Testimonials carousel
     const testimonialCards = document.querySelectorAll('.testimonial-card');
@@ -185,8 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateTestimonials() {
-        // This would be more complex with actual carousel functionality
-        // For now, just update the active dot
         testimonialDots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentTestimonial);
         });
@@ -245,31 +267,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile menu toggle (for responsive design)
+    // Mobile menu toggle
     const logo = document.querySelector('.logo');
     let mobileMenuVisible = false;
 
-    logo.addEventListener('click', function() {
-        if (window.innerWidth <= 992) {
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (!mobileMenuVisible) {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = 'rgba(60, 60, 60, 0.98)';
-                navMenu.style.padding = '20px';
-                navMenu.style.gap = '15px';
-                mobileMenuVisible = true;
-            } else {
-                navMenu.style.display = 'none';
-                mobileMenuVisible = false;
+    if (logo) {
+        logo.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (!mobileMenuVisible) {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.width = '100%';
+                    navMenu.style.background = 'rgba(60, 60, 60, 0.98)';
+                    navMenu.style.padding = '20px';
+                    navMenu.style.gap = '15px';
+                    mobileMenuVisible = true;
+                } else {
+                    navMenu.style.display = 'none';
+                    mobileMenuVisible = false;
+                }
             }
-        }
-    });
+        });
+    }
 
     // Close mobile menu when clicking on a link
     const mobileNavLinks = document.querySelectorAll('.nav-menu a');
@@ -286,22 +310,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         if (window.innerWidth > 992) {
             const navMenu = document.querySelector('.nav-menu');
-            navMenu.style.display = 'flex';
-            navMenu.style.flexDirection = 'row';
-            navMenu.style.position = 'static';
-            navMenu.style.background = 'none';
-            navMenu.style.padding = '0';
-            navMenu.style.gap = '40px';
-            mobileMenuVisible = false;
+            if (navMenu) {
+                navMenu.style.display = 'flex';
+                navMenu.style.flexDirection = 'row';
+                navMenu.style.position = 'static';
+                navMenu.style.background = 'none';
+                navMenu.style.padding = '0';
+                navMenu.style.gap = '40px';
+                mobileMenuVisible = false;
+            }
         } else {
             const navMenu = document.querySelector('.nav-menu');
-            if (!mobileMenuVisible) {
+            if (navMenu && !mobileMenuVisible) {
                 navMenu.style.display = 'none';
             }
         }
     });
 
-    // Add loading animation
+    // Add loading animation for tour buttons
     const tourButtons = document.querySelectorAll('.tour-btn');
     tourButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
@@ -313,7 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 this.textContent = originalText;
                 this.style.opacity = '1';
-                // Here you would typically redirect to booking page
                 alert('Sayohat sahifasiga yo\'naltirilmoqda...');
             }, 1500);
         });
