@@ -402,11 +402,11 @@ body {
 
 /* Place Images - ОБНОВЛЕНЫ ДЛЯ НАСТОЯЩИХ ИЗОБРАЖЕНИЙ */
 .place-xiva {
-    background-image: url('images/xiva.jpg');
+    background-image: url('images/japan.jpg');
 }
 
 .place-buxoro {
-    background-image: url('images/buxoro.jpg');
+    background-image: url('images/vietnam.jpg');
 }
 
 .place-sharm {
@@ -418,7 +418,7 @@ body {
 }
 
 .place-samarqand {
-    background-image: url('images/samarqand.jpg');
+    background-image: url('images/euro.jpg');
 }
 
 /* Contact Section */
