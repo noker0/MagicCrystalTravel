@@ -5,15 +5,61 @@
     box-sizing: border-box;
 }
 
+#share {
+	width: 100%;
+  	text-align: center;
+}
 
+/* buttons */
+
+#share a {
+	width: 50px;
+  	height: 50px;
+  	display: inline-block;
+  	margin: 8px;
+  	border-radius: 50%;
+  	font-size: 24px;
+  	color: #fff;
+    padding-top: 10px;
+}
+
+
+/* icons */
+
+
+
+/* colors */
+
+.facebook {
+ 	background: #3b5998;
+}
+
+.twitter {
+  	background: #27A7E7;
+}
+
+.googleplus {
+  	background: #FE02BB;
+}
+
+.linkedin {
+  	background: #0077b5;
+}
+
+.pinterest {
+  	background: #cb2027;
+}
+.absd{
+    width: 50px !important;
+    height: 50px !important;
+}   
 
 ::-webkit-scrollbar{
    background: white;
 }
 
 ::-webkit-scrollbar-thumb{
-    background: #4CAF50;
-    border-radius: 15px;
+    background: #131142;
 }
 
 ::-webkit-scrollbar {
@@ -26,8 +72,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: linear-gradient(180deg, #1dfb00, #158f00);
+  background: linear-gradient(180deg, #131142, #131142);
 }
 
 body {
@@ -44,7 +89,7 @@ body {
 
 /* Header */
 .header {
-    background: rgba(34, 139, 34, 0.95);
+    background: #131142;
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -84,7 +129,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #90EE90;
+    color: #7874ff;
 }
 
 .contact-info {
@@ -107,7 +152,7 @@ body {
 .hero {
     height: 100vh;
     /* Базовый фон будет заменен JavaScript */
-    background: linear-gradient(rgba(34, 139, 34, 0.5), rgba(46, 125, 50, 0.6)), 
+    background: linear-gradient(#131142, #131142), 
                 url('images/egypt-sharm.jpg'); /* Путь к изображению по умолчанию */
     background-size: cover;
     background-position: center;
@@ -148,7 +193,7 @@ body {
 }
 
 .cta-button {
-    background: #4CAF50;
+    background: #131142;
     color: white;
     padding: 15px 35px;
     border: none;
@@ -161,9 +206,9 @@ body {
 }
 
 .cta-button:hover {
-    background: #388E3C;
+    background: #131142;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 5px 15px #514f97;
 }
 
 .hero-nav-circles {
@@ -201,11 +246,11 @@ body {
     font-size: 42px;
     font-weight: 300;
     margin-bottom: 20px;
-    color: #2E7D32;
+    color: #131142;
 }
 
 .section-title.dark {
-    color: #1B5E20;
+    color: #131142;
 }
 
 .section-title.white {
@@ -215,7 +260,7 @@ body {
 .section-subtitle {
     text-align: center;
     font-size: 16px;
-    color: #4CAF50;
+    color: #131142;
     margin-bottom: 60px;
 }
 
@@ -237,7 +282,7 @@ body {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+    box-shadow: 0 10px 30px #131142;
     transition: transform 0.3s ease;
     position: relative;
     border: 2px solid #E8F5E8;
@@ -245,7 +290,7 @@ body {
 
 .tour-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.25);
+    box-shadow: 0 15px 40px #131142;
 }
 
 .tour-image {
@@ -290,7 +335,7 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: #4CAF50;
+    background: #131142;
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
@@ -307,13 +352,13 @@ body {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
-    color: #2E7D32;
+    color: #131142;
 }
 
 .tour-btn {
     background: transparent;
-    border: 2px solid #4CAF50;
-    color: #4CAF50;
+    border: 2px solid #131142;
+    color: #131142;
     padding: 8px 20px;
     border-radius: 5px;
     font-weight: 600;
@@ -323,7 +368,7 @@ body {
 }
 
 .tour-btn:hover {
-    background: #4CAF50;
+    background: #131142;
     color: white;
 }
 
@@ -334,20 +379,20 @@ body {
 .price-label {
     display: block;
     font-size: 12px;
-    color: #66BB6A;
+    color: #131142;
     margin-bottom: 5px;
 }
 
 .price {
     font-size: 20px;
     font-weight: 600;
-    color: #4CAF50;
+    color: #131142;
     margin-right: 5px;
 }
 
 .currency {
     font-size: 14px;
-    color: #66BB6A;
+    color: #131142;
 }
 
 /* Beautiful Places Section */
@@ -424,7 +469,7 @@ body {
 /* Contact Section */
 .contact-section {
     padding: 100px 0;
-    background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(27, 94, 32, 0.8)),
+    background: linear-gradient(#131142, #131142),
                 url('images/contact-bg.jpg'); /* Замените на ваше изображение */
     background-size: cover;
     background-position: center;
@@ -476,7 +521,7 @@ body {
 }
 
 .submit-btn {
-    background: #4CAF50;
+    background: #242195;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -489,7 +534,7 @@ body {
 }
 
 .submit-btn:hover {
-    background: #388E3C;
+    background: #4039ff;
     transform: translateY(-2px);
 }
 
@@ -593,7 +638,7 @@ body {
 /* Testimonials Section */
 .testimonials-section {
     padding: 100px 0;
-    background: #2E7D32;
+    background: #131142;
     color: white;
 }
 
@@ -619,7 +664,7 @@ body {
 
 .testimonial-card.light {
     background: white;
-    color: #2E7D32;
+    color: #131142;
     border: 2px solid #E8F5E8;
 }
 
@@ -642,7 +687,7 @@ body {
 }
 
 .testimonial-card.light .testimonial-role {
-    color: #4CAF50;
+    color: #131142;
 }
 
 .testimonial-nav {
@@ -667,7 +712,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #1B5E20;
+    background: #131142;
     color: white;
     padding: 60px 0 30px;
 }
@@ -688,7 +733,7 @@ body {
 .footer-section p {
     font-size: 16px;
     line-height: 1.8;
-    color: #C8E6C9;
+    color: #c8cde6;
 }
 
 .footer-section ul {
@@ -700,20 +745,20 @@ body {
 }
 
 .footer-section ul li a {
-    color: #C8E6C9;
+    color: #8481c7;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-    color: #81C784;
+    color: #8781c7;
 }
 
 .footer-divider {
     border: none;
     height: 1px;
-    background: #2E7D32;
+    background: #352e7d;
     margin: 40px 0;
 }
 
@@ -746,7 +791,7 @@ body {
     display: flex;
     gap: 40px;
     font-size: 14px;
-    color: #81C784;
+    color: #8481c7;
 }
 
 /* Изображения-заглушки для отсутствующих фото */
@@ -781,6 +826,13 @@ body {
     
     .nav-container {
         padding: 0 15px;
+    }
+    .share{
+        display: block !important;
+        margin-left: 0% !important;
+    }
+    .footer-bottom{
+        display:  block !important;
     }
 }
 
@@ -931,3 +983,5 @@ body {
         text-align: center;
     }
 }
+
+

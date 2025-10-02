@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 setTimeout(() => {
                     submitBtn.textContent = 'YUBORILDI ✓';
-                    submitBtn.style.background = '#27ae60';
+                    submitBtn.style.background = '#131142';
                     
                     setTimeout(() => {
                         submitBtn.textContent = originalText;
