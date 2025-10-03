@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savollar - Crystal Travel UZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            color: white;
+        }
+
+        .info-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .info-item svg {
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateX(-5px);
+        }
+
+        .error-message {
+            display: none;
+            background: #f44336;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .form-card {
+                padding: 25px;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="Index.html" class="back-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Bosh sahifaga qaytish
+        </a>
+
+        <div class="header">
+            <h1>Savollaringizni Qoldiring</h1>
+            <p>Biz bilan hayotingizni esda qolarli va mo'jizaviy onlarini quring</p>
+        </div>
+
+        <div class="form-card">
+            <form id="questionForm">
+                <div class="form-group">
+                    <label for="name">Ismingiz *</label>
+                    <input type="text" id="name" name="name" required placeholder="Ismingizni kiriting">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon raqami *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+998 XX XXX XX XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (ixtiyoriy)</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Savol toifasi *</label>
+                    <select id="category" name="category" required>
+                        <option value="">Toifani tanlang</option>
+                        <option value="tour">Turlar haqida</option>
+                        <option value="price">Narxlar haqida</option>
+                        <option value="booking">Bron qilish</option>
+                        <option value="visa">Viza rasmiylashtiruvi</option>
+                        <option value="other">Boshqa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="question">Savolingiz *</label>
+                    <textarea id="question" name="question" required placeholder="Savolingizni batafsil yozing..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Savolni yuborish</button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3>✓ Muvaffaqiyatli yuborildi!</h3>
+                <p>Tez orada siz bilan bog'lanamiz. Rahmat!</p>
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <h3>✗ Xatolik yuz berdi!</h3>
+                <p>Iltimos qaytadan urinib ko'ring yoki to'g'ridan-to'g'ri telegram orqali bog'laning.</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>Biz bilan bog'lanish</h3>
+            <div class="info-item">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>crystaltour313@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                <span>+998 77 494 13 13</span>
+            </div>
+            <div class="info-item">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Toshkent, O'zbekiston</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Telegram Bot настройки
+        const TELEGRAM_BOT_TOKEN = '7591550884:AAEMcXk1oTmVMbOhecmH3Q4qVKa-R8dQ5FA'; // Замените на токен вашего бота
+        const TELEGRAM_CHAT_ID = '-1003180419111';
+
+        const form = document.getElementById('questionForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        async function sendToTelegram(formData) {
+            const message = `
+🆕 Новый вопрос с сайта Crystal Travel UZ
+
+👤 Имя: ${formData.name}
+📞 Телефон: ${formData.phone}
+📧 Email: ${formData.email || 'Не указан'}
+📋 Категория: ${formData.category}
+
+❓ Вопрос:
+${formData.question}
+
+⏰ Время: ${formData.timestamp}
+            `.trim();
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Telegram API error');
+                }
+
+                return true;
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram:', error);
+                return false;
+            }
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                category: getCategoryText(document.getElementById('category').value),
+                question: document.getElementById('question').value,
+                timestamp: new Date().toLocaleString('uz-UZ')
+            };
+
+            // Показываем индикатор загрузки
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Yuborilmoqda...';
+            submitBtn.disabled = true;
+
+            // Отправляем в Telegram
+            const success = await sendToTelegram(formData);
+            
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+
+            if (success) {
+                form.style.display = 'none';
+                successMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'block';
+                    successMessage.classList.remove('show');
+                }, 4000);
+            } else {
+                errorMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            }
+        });
+
+        function getCategoryText(value) {
+            const categories = {
+                'tour': 'Turlar haqida',
+                'price': 'Narxlar haqida',
+                'booking': 'Bron qilish',
+                'visa': 'Viza rasmiylashtiruvi',
+                'other': 'Boshqa'
+            };
+            return categories[value] || value;
+        }
+
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('998')) {
+                value = value.substring(3);
+            }
+            if (value.length > 0) {
+                e.target.value = '+998 ' + value.match(/.{1,2}/g)?.join(' ') || value;
+            }
+        });
+    </script>
+</body>
+</html>
