@@ -59,7 +59,7 @@
 }
 
 ::-webkit-scrollbar-thumb{
-    background: #131142;
+    background: #001938;
 }
 
 ::-webkit-scrollbar {
@@ -75,7 +75,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #131142, #131142);
+  background: linear-gradient(180deg, #001938, #001938);
 }
 
 body {
@@ -92,7 +92,7 @@ body {
 
 /* Header */
 .header {
-    background: #131142;
+    background: #001938;
     padding: 15px 0;
     position: fixed;
     width: 100%;
@@ -155,7 +155,7 @@ body {
 .hero {
     height: 100vh;
     /* Базовый фон будет заменен JavaScript */
-    background: linear-gradient(#131142, #131142), 
+    background: linear-gradient(#001938, #001938), 
                 url('images/egypt-sharm.jpg'); /* Путь к изображению по умолчанию */
     background-size: cover;
     background-position: center;
@@ -196,7 +196,7 @@ body {
 }
 
 .cta-button {
-    background: #131142;
+    background: #001938;
     color: white;
     padding: 15px 35px;
     border: none;
@@ -209,7 +209,7 @@ body {
 }
 
 .cta-button:hover {
-    background: #131142;
+    background: #001938;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px #514f97;
 }
@@ -249,11 +249,11 @@ body {
     font-size: 42px;
     font-weight: 300;
     margin-bottom: 20px;
-    color: #131142;
+    color: #001938;
 }
 
 .section-title.dark {
-    color: #131142;
+    color: #001938;
 }
 
 .section-title.white {
@@ -263,7 +263,7 @@ body {
 .section-subtitle {
     text-align: center;
     font-size: 16px;
-    color: #131142;
+    color: #001938;
     margin-bottom: 60px;
 }
 
@@ -285,7 +285,7 @@ body {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px #131142;
+    box-shadow: 0 10px 30px #001938;
     transition: transform 0.3s ease;
     position: relative;
     border: 2px solid #E8F5E8;
@@ -293,7 +293,7 @@ body {
 
 .tour-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px #131142;
+    box-shadow: 0 15px 40px #001938;
 }
 
 .tour-image {
@@ -338,7 +338,7 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: #131142;
+    background: #001938;
     color: white;
     padding: 8px 15px;
     border-radius: 20px;
@@ -355,13 +355,13 @@ body {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 20px;
-    color: #131142;
+    color: #001938;
 }
 
 .tour-btn {
     background: transparent;
-    border: 2px solid #131142;
-    color: #131142;
+    border: 2px solid #001938;
+    color: #001938;
     padding: 8px 20px;
     border-radius: 5px;
     font-weight: 600;
@@ -371,7 +371,7 @@ body {
 }
 
 .tour-btn:hover {
-    background: #131142;
+    background: #001938;
     color: white;
 }
 
@@ -382,20 +382,20 @@ body {
 .price-label {
     display: block;
     font-size: 12px;
-    color: #131142;
+    color: #001938;
     margin-bottom: 5px;
 }
 
 .price {
     font-size: 20px;
     font-weight: 600;
-    color: #131142;
+    color: #001938;
     margin-right: 5px;
 }
 
 .currency {
     font-size: 14px;
-    color: #131142;
+    color: #001938;
 }
 
 /* Beautiful Places Section */
@@ -472,7 +472,7 @@ body {
 /* Contact Section */
 .contact-section {
     padding: 100px 0;
-    background: linear-gradient(#131142, #131142),
+    background: linear-gradient(#001938, #001938),
                 url('images/contact-bg.jpg'); /* Замените на ваше изображение */
     background-size: cover;
     background-position: center;
@@ -641,7 +641,7 @@ body {
 /* Testimonials Section */
 .testimonials-section {
     padding: 100px 0;
-    background: #131142;
+    background: #001938;
     color: white;
 }
 
@@ -667,7 +667,7 @@ body {
 
 .testimonial-card.light {
     background: white;
-    color: #131142;
+    color: #001938;
     border: 2px solid #E8F5E8;
 }
 
@@ -690,7 +690,7 @@ body {
 }
 
 .testimonial-card.light .testimonial-role {
-    color: #131142;
+    color: #001938;
 }
 
 .testimonial-nav {
@@ -715,7 +715,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #131142;
+    background: #001938;
     color: white;
     padding: 60px 0 30px;
 }
@@ -873,6 +873,7 @@ body {
     }
     
     .footer-content {
+        display: block !important;
         grid-template-columns: 1fr;
         gap: 30px;
     }
