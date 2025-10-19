@@ -7,13 +7,14 @@
     <title>Magic Crystal Travel</title>
       <link rel="icon" type="image/png" href="images/newone.jpg">
     <link rel="stylesheet" href="style.css">
+    
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 </head>
 <body>
     <!-- Header -->
     <header class="header" >
         <div class="nav-container">
-            <img src="images/newone.jpg" style="width: 100px;" class="abcd" alt="">
+            <img src="images/logotip.jpg" style="width: 100px;" class="abcd" alt="">
             <div class="logo" style="cursor: pointer;">Magic Сrystal Travel</div>
             <nav>
                 <ul class="nav-menu">
@@ -21,6 +22,18 @@
                     <li><a href="#tours">Sayohatlar</a></li>
                     <li><a href="#footer">Biz Haqimizda</a></li>
                     <li><a href="questions.html">Ko'p Beriladigan Savollar</a></li>
+                    <li><a href="#" onclick="showAlert(event)">Ish Vaqti</a></li>
+                    <script>
+function showAlert(event) {
+  event.preventDefault();
+  Swal.fire({
+    title: 'Ish Vaqti',
+    text: 'Xar kuni 10:00 Dan 22:00 gacha',
+    icon: 'info',
+    confirmButtonText: 'OK'
+  });
+}
+</script>
                 </ul>
             </nav>
             <div class="contact-info">
@@ -33,7 +46,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content" >
-            <div class="hero-subtitle">Сrystal Travel rasmiy saytiga xush kelibsiz</div>
+            <div class="hero-subtitle">Magic Сrystal Travel rasmiy saytiga xush kelibsiz</div>
             <h1 class="hero-title">Misr Ehromlari</h1>
             <div class="hero-location">Sharm al-Sheyx</div>
             <button class="cta-button">Sayohatimgizni bron qiling</button>
@@ -338,17 +351,23 @@
                     <div class="contact-details">
                         <span class="phone">+998 77 494 13 13</span>
                         <a class="email" href="https://t.me/magic_crystal_travel">t.me/magic_crystal_travel</a>
+                        <span class="phone">OOO “MAGIC CRYSTAL”</span>
+                          <span class="phone">crystaltour313@gmail.com</span>
+                         <span class="phone">Direktor <span style="font-size: 20px; font-weight: bold;">Xadjiyeva G.T.</span></span>
+                          
                     </div>
                     <div class="footer-links">
                         <span></span>
                         <span></span>
                     </div>
                 </div>
-                <div id="share" class="share" style="margin-left: 50%;margin-top: 10%;">
+                <div class="footer-contact" style="width: 35%;">
+                    <h4>Manzil:</h4>
+                    <p>Toshkent shaxar, Chilonzor tumani, Navbaxor 3 A</p>
+                </div>
+                <div id="share" class="share" style="margin-left: 20%;margin-top: 10%;">
 <h4 style="font-size: 30px;">Havolalar:</h4>
-  <!-- facebook -->
-  <a class="facebook" href=""  target="blank"><i class="fa fa-facebook" style="display: flex;justify-content: center; align-items: center;"><img src="images/face.png" style="width: 50%;"  alt=""></i></a>
-
+  
   <!-- telegrem -->
   <a class="twitter" href="https://t.me/magic_crystal_travel" target="blank"><i class="fa fa-twitter"><img src="images/tel.png" style="width: 50%;"  alt=""></i></a>
 
@@ -361,7 +380,7 @@
         </div>
     </footer>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script src="script2.js"></script>
     <script src="script.js"></script>
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

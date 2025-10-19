@@ -27,9 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ОБНОВЛЕННЫЙ МАССИВ СЛАЙДОВ С НАСТОЯЩИМИ ИЗОБРАЖЕНИЯМИ
     const slides = [
         {
-            title: 'Misr Ehromlari',
-            subtitle: 'Sharm al-Sheyx',
-            image: 'images/egypt-sharm.jpg', // Ваше изображение Египта
+            title: 'Europa',
+            image: 'images/europa.jpg', // Ваше изображение Египта
             alt: 'Красивый пейзаж Шарм-эль-Шейха'
         },
         {
